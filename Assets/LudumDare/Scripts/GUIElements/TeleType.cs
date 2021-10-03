@@ -11,17 +11,23 @@ namespace LD49.GUIElements
         public TextMeshProUGUI TextMesh;
         [BoxGroup("Component Dependencies")]
         public AudioSource AudioSource;
+        [BoxGroup("Component Dependencies")]
+        public StoryAnimator MochiAnimator;
+        [BoxGroup("Component Dependencies")]
+        public StoryAnimator BunnerlyAnimator;
 
         [BoxGroup("Audio Settings")]
-        public AudioClip BeepSound;
+        public AudioClip MochiSound;
+        [BoxGroup("Audio Settings")]
+        public AudioClip BunnerlySound;
 
         private int _visibleCount;
         private int _totalVisible;
         private int _counter = 0;
-
         private bool _holding = false;
 
         public StoryText StoryText { get; set; }
+        public Speaker CurrentSpeaker { get; set; }
 
         public void Play()
         {
@@ -33,6 +39,10 @@ namespace LD49.GUIElements
         public void Stop()
         {
             StopAllCoroutines();
+            _counter = 0;
+            _visibleCount = 0;
+            _totalVisible = 0;
+            _holding = false;
         }
 
         public void Next()
@@ -47,7 +57,8 @@ namespace LD49.GUIElements
 
         public IEnumerator ShowText()
         {
-            AudioSource.clip = BeepSound;
+            AudioSource.clip = CurrentSpeaker == Speaker.Mochi ? MochiSound : BunnerlySound;
+
             _totalVisible = TextMesh.textInfo.characterCount;
 
             while ( true && !_holding )
@@ -64,7 +75,7 @@ namespace LD49.GUIElements
                 {
                     if (TextMesh.text[_counter].ToString() != " ")
                     {
-                        Debug.Log(_counter + " : " + TextMesh.text.Length);
+                        // Debug.Log(_counter + " : " + TextMesh.text.Length);
                         AudioSource.Play();
                     }
                 }
