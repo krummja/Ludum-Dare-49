@@ -4,13 +4,16 @@ using UnityEngine.UI;
 namespace LD49.GUIElements
 {
     using Screens;
+    using TMPro;
+    using UnityEngine.EventSystems;
 
-    public class IngredientButton : MonoBehaviour
+    public class IngredientButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public Ingredient Ingredient;
         public CraftingTable Table;
 
         public bool IsSelected = false;
+        public TextMeshProUGUI NameTooltip;
 
         private Image _image;
         private Button _button;
@@ -31,6 +34,9 @@ namespace LD49.GUIElements
 
         private void Start()
         {
+            NameTooltip = GetComponentInChildren<TextMeshProUGUI>();
+            NameTooltip.gameObject.SetActive(false);
+
             _image = GetComponent<Image>();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClicked);
@@ -38,16 +44,17 @@ namespace LD49.GUIElements
             Ingredient.IsUsed = false;
         }
 
-        private void Update()
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            if ( Ingredient.IsUsed )
-            {
+            Debug.Log("Mouse detected");
+            NameTooltip.text = Ingredient.Name;
+            NameTooltip.gameObject.SetActive(true);
+        }
 
-            }
-            else
-            {
-
-            }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            NameTooltip.text = "";
+            NameTooltip.gameObject.SetActive(false);
         }
     }
 }

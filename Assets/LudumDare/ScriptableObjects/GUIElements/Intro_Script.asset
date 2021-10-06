@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2475d73f29cf4897a8ed132a7d6b3773, type: 3}
+  m_Name: Intro_Script
+  m_EditorClassIdentifier: 
+  StoryScript:
+  - Hmm hm hmmmm... Oh! Hello there!
+  - I'm Mochi! Welcome to my potion shop! Feel free to look around.
+  - You want to know about potion-making?
+  - Well, in that case - let me warn you that potions are... well, they can be very
+    dangerous!
+  - But if you do things right, they can be very, very lucrative.
+  - In fact, if you have a minute... I have a story that might help you understand.
+    It began a few months ago...
+  SpeakerSequence: 000000000000000000000000000000000000000000000000
+  MochiSequence: 000000000100000000000000020000000100000000000000
+  BunnerlySequence: 000000000000000000000000000000000000000000000000
+  CurrentIndex: 0
+  Complete: 0

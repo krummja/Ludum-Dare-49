@@ -6,7 +6,7 @@ namespace LD49.Screens
     using GUIElements;
     using Managers;
 
-    public class StoryScreen : MonoBehaviour
+    public class StoryScreen : AbstractScreen
     {
         [BoxGroup("Component Dependencies")]
         public TeleType TeleType;
@@ -14,15 +14,31 @@ namespace LD49.Screens
         public StoryAnimator MochiAnimator;
         [BoxGroup("Component Dependencies")]
         public StoryAnimator BunnerlyAnimator;
+        [BoxGroup("Component Dependencies")]
+        public GameObject ForwardButton;
+        [BoxGroup("Component Dependencies")]
+        public GameObject GameOver;
 
         [BoxGroup("Script")]
         public GameObject MochiPanel;
         [BoxGroup("Script")]
         public GameObject BunnerlyPanel;
         [BoxGroup("Script")]
-        public StoryText Script;
+        public StoryText IntroScript;
+        [BoxGroup("Script")]
+        public StoryText StageOneScript;
+        [BoxGroup("Script")]
+        public StoryText StageTwoScript;
+        [BoxGroup("Script")]
+        public StoryText StageThreeScript;
+        [BoxGroup("Script")]
+        public StoryText FailScript;
+        [BoxGroup("Script")]
+        public StoryText WinScript;
 
         private Speaker _current;
+
+        public StoryText Script { get; private set; }
 
         public Speaker CurrentSpeaker
         {
@@ -41,11 +57,43 @@ namespace LD49.Screens
         [ResponsiveButtonGroup("TextControl", UniformLayout = true)]
         public void Play()
         {
-            if ( TeleType.GetComponent<TeleType>().StoryText == null )
+            if ( Script == null )
             {
-                TeleType.GetComponent<TeleType>().StoryText = Script;
+                Script = StageOneScript;
             }
+
             TeleType.gameObject.SetActive(true);
+
+            switch ( GameManager.Instance.StoryStage )
+            {
+                case StoryStage.Intro:
+                    BunnerlyAnimator.gameObject.SetActive(false);
+                    Script = IntroScript;
+                    break;
+                case StoryStage.FirstPotion:
+                    BunnerlyAnimator.gameObject.SetActive(true);
+                    Script = StageOneScript;
+                    break;
+                case StoryStage.SecondPotion:
+                    Script = StageTwoScript;
+                    break;
+                case StoryStage.ThirdPotion:
+                    Script = StageThreeScript;
+                    break;
+                case StoryStage.Win:
+                    Script = WinScript;
+                    ForwardButton.SetActive(false);
+                    break;
+                case StoryStage.Lose:
+                    Script = FailScript;
+                    ForwardButton.SetActive(false);
+                    break;
+            }
+
+            Script.CurrentIndex = 0;
+            Script.Complete = false;
+
+            TeleType.GetComponent<TeleType>().StoryText = Script;
 
             TeleType.MochiAnimator = MochiAnimator;
             TeleType.BunnerlyAnimator = BunnerlyAnimator;
@@ -79,7 +127,19 @@ namespace LD49.Screens
             }
             else
             {
-                GameManager.Instance.TransitionToState(GameState.Shop);
+                if ( Script == IntroScript )
+                {
+                    if (Script.Complete)
+                    {
+                        GameManager.Instance.StoryStage = StoryStage.FirstPotion;
+                        GameManager.Instance.TransitionToState(GameState.Transition);
+                    }
+                }
+
+                else
+                {
+                    GameManager.Instance.TransitionToState(GameState.Shop);
+                }
             }
         }
 
@@ -103,10 +163,14 @@ namespace LD49.Screens
             }
         }
 
-        private void Start()
+        private void Update()
         {
-            Script.CurrentIndex = 0;
-            Play();
+            if ( Script == FailScript )
+            {
+                if ( Script.Complete ) GameOver.SetActive(true);
+                else GameOver.SetActive(false);
+            }
         }
+
     }
 }

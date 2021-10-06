@@ -14,13 +14,11 @@ namespace LD49.Effects
 
         private void SwitchToUp()
         {
-            Debug.Log("Up");
             StartCoroutine(HoverUp());
         }
 
         private void SwitchToDown()
         {
-            Debug.Log("Down");
             StartCoroutine(HoverDown());
         }
 

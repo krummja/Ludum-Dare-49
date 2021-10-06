@@ -21,4 +21,5 @@ MonoBehaviour:
   SpeakerSequence: 01000000000000000100000000000000
   MochiSequence: 00000000030000000000000001000000
   BunnerlySequence: 03000000030000000000000001000000
-  CurrentIndex: 0
+  CurrentIndex: 4
+  Complete: 1

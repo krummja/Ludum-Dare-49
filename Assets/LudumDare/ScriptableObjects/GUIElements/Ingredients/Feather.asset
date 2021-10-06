@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Feather
   IsUsed: 0
-  Icon: {fileID: 21300000, guid: 7789f4efbb0f45c4780925243375a18e, type: 3}
+  Icon: {fileID: 21300000, guid: 7afb3574358a83f49b54398b2bc05030, type: 3}

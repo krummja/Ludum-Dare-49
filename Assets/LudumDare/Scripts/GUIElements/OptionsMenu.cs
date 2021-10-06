@@ -7,29 +7,33 @@ using Sirenix.OdinInspector;
 namespace LD49.GUIElements
 {
     using System;
+    using Managers;
     using Screens;
-    using UnityEngine.UIElements;
 
     public class OptionsMenu : MonoBehaviour
     {
-        public AbstractScreen Context;
-        public ButtonList Buttons;
-
-        public int Y_OFFSET = 75;
-
-        private void Start()
+        public void OnReturnPressed()
         {
-            SetupButtonList();
+            gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
 
-        private void SetupButtonList()
+        public void OnQuitPressed()
         {
-            for ( int i = 0; i < Buttons.Buttons.Count; i++ )
+            switch ( GameManager.Instance.CurrentState )
             {
-                GameObject button = Buttons.Buttons[i];
-                GameObject _button = Instantiate(button, Vector2.zero, Quaternion.identity);
-                _button.transform.parent = this.transform;
-                _button.transform.localPosition = new Vector2(0f, -(i * Y_OFFSET) + 100f);
+                case GameState.Menu:
+                {
+                    GameManager.Instance.QuitApplication();
+                    break;
+                }
+
+                default:
+                {
+                    GameManager.Instance.TransitionToState(GameState.Menu);
+                    gameObject.SetActive(false);
+                    break;
+                }
             }
         }
     }

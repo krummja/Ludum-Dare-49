@@ -30,13 +30,13 @@ namespace LD49.GUIElements
         private static readonly int Sad = 3;
         private static readonly int Failure = 4;
 
-        private void Start()
-        {
-            renderer = GetComponent<Image>();
-        }
-
         public void SwitchSprite()
         {
+            if ( renderer == null )
+            {
+                renderer = GetComponent<Image>();
+            }
+
             switch ( Expression )
             {
                 case Expression.Neutral:

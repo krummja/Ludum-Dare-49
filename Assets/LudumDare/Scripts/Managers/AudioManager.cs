@@ -1,10 +1,14 @@
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace LD49.Managers
 {
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance;
+
+        public AudioSource AudioSource;
+        public AudioClip Music;
 
         private void Awake()
         {
@@ -19,7 +23,11 @@ namespace LD49.Managers
             }
         }
 
-        private void Start() { }
+        private void Start()
+        {
+            AudioSource.clip = Music;
+            AudioSource.Play();
+        }
 
         private void Update() { }
     }

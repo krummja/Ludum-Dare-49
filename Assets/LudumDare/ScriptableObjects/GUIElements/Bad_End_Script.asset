@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2475d73f29cf4897a8ed132a7d6b3773, type: 3}
   m_Name: Bad_End_Script
   m_EditorClassIdentifier: 
-  StoryScript: []
-  CurrentIndex: 0
+  StoryScript:
+  - HOW DARE YOU! Your reckless, irresponsible potion making is a menace to everyone
+    in our Warren! Did you know these potions were dangerous? You should be arrested!
+    Everyone will hear about this! You'll never brew another potion again!
+  SpeakerSequence: 01000000
+  MochiSequence: 04000000
+  BunnerlySequence: 04000000
+  CurrentIndex: 1
+  Complete: 1

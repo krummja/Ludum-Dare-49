@@ -12,5 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2475d73f29cf4897a8ed132a7d6b3773, type: 3}
   m_Name: Brew_Script_03
   m_EditorClassIdentifier: 
-  StoryScript: []
+  StoryScript:
+  - Here is your love potion, Mrs. Bunnerly. Anything else I can make for you today?
+  - Now that I'm thinking of it... My friend has a birthday coming up and she's been
+    saying for ages she wants some change in her life. Is that something you could
+    help me with?
+  - Hmmmn... How about a potion to let her be someone else for a night? A transformation
+    potion!
+  - That sounds lovely.
+  - We'll just add a couple symbols of changing, something to reflect them and then
+    the secret ingredient! A little mystery of the night.
+  - Ooooh, do you giftwrap?
+  - I'll see what I can do for you!
+  SpeakerSequence: 00000000010000000000000001000000000000000100000000000000
+  MochiSequence: 01000000000000000000000001000000000000000000000001000000
+  BunnerlySequence: 01000000000000000000000001000000010000000000000001000000
   CurrentIndex: 0
+  Complete: 0

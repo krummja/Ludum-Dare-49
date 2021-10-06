@@ -21,6 +21,7 @@ namespace LD49.GUIElements
             {
                 GameObject child = transform.GetChild(i).gameObject;
                 IngredientButton button = child.GetComponent<IngredientButton>();
+                Debug.Log(button.Ingredient.Name);
                 Buttons.Add(button);
             }
         }

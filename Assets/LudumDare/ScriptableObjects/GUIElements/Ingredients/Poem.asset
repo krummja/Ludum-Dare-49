@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f15f3149df40709402ae0cb376a94e, type: 3}
   m_Name: Poem
   m_EditorClassIdentifier: 
-  Name: A Poem
-  IsUsed: 0
-  Icon: {fileID: 21300000, guid: 7789f4efbb0f45c4780925243375a18e, type: 3}
+  Name: Poem
+  IsUsed: 1
+  Icon: {fileID: 21300000, guid: 47c8d4bb5ecf3cf1f8c29ddaedb486e4, type: 3}

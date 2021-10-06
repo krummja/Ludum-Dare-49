@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Snake Skin
   IsUsed: 0
-  Icon: {fileID: 21300000, guid: 7789f4efbb0f45c4780925243375a18e, type: 3}
+  Icon: {fileID: 21300000, guid: 4d850d2e5280b46deb4f57978d36f3e0, type: 3}

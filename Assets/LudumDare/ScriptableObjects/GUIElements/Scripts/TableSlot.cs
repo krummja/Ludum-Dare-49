@@ -13,5 +13,7 @@ namespace LD49.GUIElements
 
         [PreviewField(75)]
         public Sprite FilledIcon;
+
+        public Vector3 position;
     }
 }

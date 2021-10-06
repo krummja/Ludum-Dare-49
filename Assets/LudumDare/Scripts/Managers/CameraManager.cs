@@ -10,33 +10,17 @@ namespace LD49.Managers
 
     public class CameraManager : MonoBehaviour
     {
+        public static CameraManager Instance;
+
         public Camera StoryCamera;
         public Camera ShopCamera;
-
-        public static CameraManager Instance;
 
         public CameraType CurrentCamera { get; private set; }
 
         public void SwitchCamera()
         {
-            switch ( CurrentCamera )
-            {
-                case CameraType.Story:
-                {
-                    StoryCamera.enabled = true;
-                    ShopCamera.enabled = false;
-                    CurrentCamera = CameraType.Shop;
-                    break;
-                }
-
-                case CameraType.Shop:
-                {
-                    StoryCamera.enabled = false;
-                    ShopCamera.enabled = true;
-                    CurrentCamera = CameraType.Story;
-                    break;
-                }
-            }
+            StoryCamera.gameObject.SetActive(!StoryCamera.gameObject.activeSelf);
+            ShopCamera.gameObject.SetActive(!ShopCamera.gameObject.activeSelf);
         }
 
         private void Awake()
@@ -52,6 +36,9 @@ namespace LD49.Managers
             }
         }
 
-        private void Start() { }
+        private void Start()
+        {
+            CurrentCamera = CameraType.Story;
+        }
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2b4116bdfb493bbd5bb76c0b4164f1, type: 3}
   m_Name: SlotA
   m_EditorClassIdentifier: 
-  Ingredient: {fileID: 11400000, guid: 7199190f55b88fb1183f2b96c83fa9d5, type: 2}
-  Icon: {fileID: 21300000, guid: bbc54c0e722a346408cd09eef6dc0cd6, type: 3}
+  Ingredient: {fileID: 0}
+  Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   FilledIcon: {fileID: 0}
+  position: {x: 276.25, y: 241, z: 0}

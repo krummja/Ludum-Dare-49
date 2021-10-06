@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2475d73f29cf4897a8ed132a7d6b3773, type: 3}
   m_Name: Good_End_Script
   m_EditorClassIdentifier: 
-  StoryScript: []
+  StoryScript:
+  - Oh, Miss Mochi, I just want to thank you for all you help! I got a great night's
+    sleep and my friend loved her gift. I think my son might even have a date. I'll
+    be sure to tell everyone in the Warren how wonderful your potions are!
+  SpeakerSequence: 01000000
+  MochiSequence: 01000000
+  BunnerlySequence: 01000000
   CurrentIndex: 0
+  Complete: 0

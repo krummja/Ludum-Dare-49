@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Warm Milk
   IsUsed: 0
-  Icon: {fileID: 21300000, guid: 7789f4efbb0f45c4780925243375a18e, type: 3}
+  Icon: {fileID: 21300000, guid: 33c894e6ffbadc0ec9169c63eb5ed13c, type: 3}
